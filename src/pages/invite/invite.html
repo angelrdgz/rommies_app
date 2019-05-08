@@ -1,0 +1,46 @@
+<ion-content>
+  <div id="container" #container>
+  <ion-row >
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+             <img src="https://i1.wp.com/usk.edu/wp-content/uploads/2017/05/Roomies-logo.png?ssl=1" alt="">
+            </ion-item>
+            <ion-item>
+              <span  item-left><ion-icon name="mail-open"></ion-icon> </span>
+              <ion-input type="text" placeholder="Código de Invitado" name="username"  [(ngModel)]="userName" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <span  item-left><ion-icon name="mail-open"></ion-icon> </span>
+              <ion-input type="text" placeholder="Nombre" name="username"  [(ngModel)]="userName" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <span  item-left><ion-icon name="mail-open"></ion-icon> </span>
+              <ion-input type="text" placeholder="Email" name="username"  [(ngModel)]="userName" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <span  item-left><ion-icon name="mail-open"></ion-icon> </span>
+              <ion-input type="number" placeholder="Telefono" name="username"  [(ngModel)]="userName" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <span  item-left><ion-icon name="lock"></ion-icon> </span>
+              <ion-input type="password" placeholder="Contraseña" name="password" [(ngModel)]="password" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <span  item-left><ion-icon name="lock"></ion-icon> </span>
+              <ion-input type="password" placeholder="Confirmar Contraseña" name="password" [(ngModel)]="password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full (click)="signIn()">Join to Team</button>
+          <button ion-button class="register-btn" block clear (click)="goToLogin()">Regresar</button>
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>
