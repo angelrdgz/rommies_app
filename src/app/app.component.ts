@@ -6,16 +6,30 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
+  token:string;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(
+    platform: Platform, 
+    statusBar: StatusBar, 
+    splashScreen: SplashScreen,
+    private storage: Storage) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      let self = this;
+      this.storage.get('token').then((condition) => {
+        if(condition == null || condition == undefined){
+        self.rootPage = LoginPage;
+        }else{
+          this.token
+        self.rootPage = TabsPage;
+        }
+      });
       statusBar.styleDefault();
       splashScreen.hide();
     });

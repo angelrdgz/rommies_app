@@ -1,17 +1,25 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Tareas</ion-title>
+    <ion-buttons end>
+     <button ion-button icon-only (click)="settings()">
+      <ion-icon name="settings"></ion-icon>
+     </button>     
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-card *ngFor="let task of tasks" (click)="showTask(task.task.id)">
+    <ion-card-header>
+      {{task.task.title}}
+    </ion-card-header>
+    <ion-card-content>
+      {{task.task.description}}
+    </ion-card-content>
+  </ion-card>
+  <ion-fab bottom right>
+    <button ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

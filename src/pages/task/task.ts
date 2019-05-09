@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TaskPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from './../../providers/api/api';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -15,7 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TaskPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	tasks: Observable<any>;
+
+  constructor(public navCtrl: NavController,
+  	public navParams: NavParams,
+  	public apiProvider: ApiProvider) {
+
+  	this.apiProvider.getTask(this.navParams.get('id')).then(data => {
+	 this.task = data.data;
+	 console.log(this.task);
+	});
   }
 
   ionViewDidLoad() {

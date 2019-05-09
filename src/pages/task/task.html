@@ -5,11 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="head">
     <ion-title>TaskPage</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+<ion-card *ngIf="task">
+  <img src="https://static.makeuseof.com/wp-content/uploads/2017/02/Shared-Task-List-Featured-670x335.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{task.title}}
+      </ion-card-title>
+    <p>
+      {{task.description}}
+    </p>
+    <br>
+    <ion-card-title>
+      Involucrados
+    </ion-card-title>
+    <p>
+    	<ion-chip *ngFor="let roomie of task.roomies">
+    	    <ion-avatar>
+    	      <img src="https://stylist-assets.imgix.net/app/uploads/2018/05/04082016/ryan-reynolds-anxiety-gettyimages-953573946-crop-1525418423-1092x1092.jpg?w=256&h=256&fit=max&auto=format%2Ccompress" alt="">
+    	    </ion-avatar>
+	    	<ion-label>{{roomie.user.name}}</ion-label>
+	    </ion-chip>
+    </p>
+    <br>
+    <button ion-button block>Terminar</button>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>

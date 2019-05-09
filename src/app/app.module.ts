@@ -17,9 +17,14 @@ import { TaskPage } from '../pages/task/task';
 import { PurchasesPage } from '../pages/purchases/purchases';
 import { ShoppingListsPage } from '../pages/shopping-lists/shopping-lists';
 import { TasksPage } from '../pages/tasks/tasks';
+import { SettingsModalPage } from '../pages/settings-modal/settings-modal';
+
+import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -36,10 +41,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ShoppingListPage,
     ShoppingListsPage,
     TasksPage,
+    TaskPage,
+    SettingsModalPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,11 +65,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ShoppingListPage,
     ShoppingListsPage,
     TasksPage,
+    TaskPage,
+    SettingsModalPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider
   ]
 })
 export class AppModule {}

@@ -1,0 +1,21 @@
+<ion-content padding>
+
+<div class="list card" *ngIf="user">
+        <ion-item class="profile-item">
+          <div class="profile-picture big-profile-picture">
+            <img src="https://stylist-assets.imgix.net/app/uploads/2018/05/04082016/ryan-reynolds-anxiety-gettyimages-953573946-crop-1525418423-1092x1092.jpg?w=256&h=256&fit=max&auto=format%2Ccompress">
+          </div>
+          <h2 class="profile-name dark">{{user.name}}</h2>
+          <div class="profile-info">{{user.email}}</div>
+        </ion-item>
+        <ion-item>
+          <button class="button button-block" ng-click="logIn()">
+            Log Out
+          </button>
+        </ion-item>
+        <ion-item>
+         <button ion-button block color="danger" (click)="logout()">Cerrar Sesión</button>
+        </ion-item>
+      </div>
+
+</ion-content>
