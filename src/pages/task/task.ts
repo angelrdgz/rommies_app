@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TaskPage {
 
-	tasks: Observable<any>;
+	public tasks: Observable<any>;
 
   constructor(public navCtrl: NavController,
   	public navParams: NavParams,

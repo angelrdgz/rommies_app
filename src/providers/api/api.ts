@@ -9,20 +9,18 @@ export class ApiProvider {
 
 	url = "http://127.0.0.1:8000/api/v1";
 	public token:Observable<string>;
-	httpOptions:any;
+	httpOptions:Observable<any>;
 
 
   constructor(public http: HttpClient, private storage: Storage) {
-  	console.log(this.storage.get('token'))
 
-		this.httpOptions = {
-		  headers: new HttpHeaders({
-		    'Content-Type':  'application/json',
-		    'Authorization': 'Bearer '+this.storage.get('token')
-		  })
-		};
 
-	
+		    this.httpOptions = {
+			  headers: new HttpHeaders({
+			    'Content-Type':  'application/json',
+			    'Authorization': 'Bearer '+localStorage.getItem('token')
+			  })
+			};	
 
   }
 
@@ -49,19 +47,16 @@ export class ApiProvider {
 	});
   }
 
-  register(){
-  	return this.http.post(this.url+'/register');
+  register(data){
+  	return this.http.post(this.url+'/register', data);
   }
 
-  registerRoomie(){
-  	return this.http.post(this.url+'/register-roomie');
+  registerRoomie(data){
+  	return this.http.post(this.url+'/register-roomie', data);
   }
 
   getTasks(){
   	console.log(this.httpOptions)
-  	storage.get('token').then((val) => {
-	    console.log('Your age is', val);
-	});
   	return new Promise(resolve => {
 		this.http.get(this.url+'/tasks', this.httpOptions).subscribe(data => {
 		  resolve(data);

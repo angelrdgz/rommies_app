@@ -27,7 +27,7 @@ export class MyApp {
         self.rootPage = LoginPage;
         }else{
           this.token
-        self.rootPage = TabsPage;
+        self.rootPage = LoginPage;
         }
       });
       statusBar.styleDefault();

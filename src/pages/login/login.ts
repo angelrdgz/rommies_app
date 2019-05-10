@@ -55,6 +55,7 @@ export class LoginPage {
     this.apiProvider.login(this.user).then(data => {
       console.log(data)
       this.storage.set('token', data.token);
+      localStorage.setItem('token', data.token);
       this.storage.set('user_roomies', JSON.stringify(data.user));
      this.loader.dismiss();
      this.navCtrl.push(TabsPage);
