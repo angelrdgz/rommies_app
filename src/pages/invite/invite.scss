@@ -30,23 +30,50 @@ page-invite {
 	      text-align: center;
 	    }
 
+	    ion-item:first-child {
+			margin-left: -0.1rem;
+			/*border-radius: 8px !important;*/
+			padding-left: 30px !important;
+			font-size: 0.9em;
+			margin-bottom: 10px;
+			background: transparent;
+			border: 0px solid #ddd !important;
+  
+			input{
+				color: #fff;
+				font-size: 1.4em;
+  
+				&::-webkit-input-placeholder {color: #ddd;}
+			  &::-moz-placeholder           {color: #ddd;}
+			  &::-moz-placeholder          {color: #ddd;}
+			  &:-ms-input-placeholder      {color: #ddd;} 
+			}
+		  }
+
 	    ion-item {
-	      margin-left: -0.1rem;
+	      margin-left: 0.1rem;
 	      /*border-radius: 8px !important;*/
 	      padding-left: 30px !important;
 	      font-size: 0.9em;
 	      margin-bottom: 10px;
-	      background: transparent;
-	      border: 0 !important;
+		  background: transparent;
+		  border:0 !important;
+		  border-radius: 20px;
+		  background: rgba(19, 18, 18, 0.4);
+
+		  span{
+			  color: #fff;
+			  font-size: 1.5em;
+		  }
 
 	      input{
 	      	color: #fff;
-	      	font-size: 1.4em;
+	      	font-size: 1.2em;
 
-	      	&::-webkit-input-placeholder {color: #ddd;}
-			&::-moz-placeholder           {color: #ddd;}
-			&::-moz-placeholder          {color: #ddd;}
-			&:-ms-input-placeholder      {color: #ddd;} 
+	      	&::-webkit-input-placeholder {color: #eee;}
+			&::-moz-placeholder           {color: #eee;}
+			&::-moz-placeholder          {color: #eee;}
+			&:-ms-input-placeholder      {color: #eee;} 
 	      }
 	    }
 
@@ -84,7 +111,7 @@ page-invite {
 
     #container {
         width: 90%; 
-        margin-left:auto; 
+        margin-left:5%; 
         margin-right: auto;
         position: absolute;
         z-index: 50;

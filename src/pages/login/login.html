@@ -9,7 +9,7 @@
             </ion-item>
             <ion-item>
               <span  item-left><ion-icon name="mail-open"></ion-icon> </span>
-              <ion-input type="text" placeholder="User Name" name="username"  [(ngModel)]="user.email" required></ion-input>
+              <ion-input type="text" placeholder="Email or Phone" name="username"  [(ngModel)]="user.email" required></ion-input>
             </ion-item>
 
             <ion-item>
@@ -22,7 +22,7 @@
       </ion-row>
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full (click)="signIn()">Login</button>
+          <button ion-button class="submit-btn" full round color="light" (click)="signIn()">Login</button>
           <button ion-button class="register-btn" block clear (click)="invite()">I'm a Roommate</button>
         </ion-col>
       </ion-row>

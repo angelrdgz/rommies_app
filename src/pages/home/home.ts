@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ApiProvider } from './../../providers/api/api';
 import { Observable } from 'rxjs/Observable';
-import { ModalController } from 'ionic-angular';
+import { NewTaskPage } from '../new-task/new-task';
 
 import { TaskPage } from '../task/task';
 import { SettingsModalPage } from '../settings-modal/settings-modal';
@@ -21,10 +21,9 @@ export class HomePage {
   	public modalCtrl: ModalController
   	) {
 
-  	this.apiProvider.getTasks().then(data => {
-	 this.tasks = data.data;
-	 console.log(this.tasks);
-	});
+
+      this.getTasks();
+  	
   }
 
   settings(){     
@@ -34,6 +33,24 @@ export class HomePage {
 
   showTask(id){
   	this.navCtrl.push(TaskPage, {id:id});
+  }
+
+  getTasks(){
+    this.apiProvider.getTasks().then(data => {
+      this.tasks = data.data;
+      console.log(this.tasks);
+    });
+  }
+
+  presentModal() {
+    let modal = this.modalCtrl.create(NewTaskPage);
+    modal.onDidDismiss(data => {
+      console.log(data);
+      if(data.action){
+        this.getTasks();
+      }
+    });
+    modal.present();
   }
 
 }

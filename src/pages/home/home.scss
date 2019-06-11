@@ -1,4 +1,23 @@
 page-home {
- ion-fab{
- }
+
+    .vertical-align-content > *
+{
+     display: flex!important;
+     align-content: space-around!important;
+     align-items: center!important;
+     flex-direction: column;
+}
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default{
+        color: #fff !important;
+        font-size: 1em;
+}
+.img_no_tasks{
+    width: 70%;
+    display: block;
+    margin: 0px auto;
+}
+h2{
+    text-align: center;
+    color: #ccc;
+}
 }

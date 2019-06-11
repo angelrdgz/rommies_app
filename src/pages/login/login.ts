@@ -4,7 +4,6 @@ import { TabsPage } from '../tabs/tabs';
 import { InvitePage } from '../invite/invite';
 
 import { ApiProvider } from './../../providers/api/api';
-import { Observable } from 'rxjs/Observable';
 
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
@@ -24,7 +23,7 @@ import { LoadingController } from 'ionic-angular';
 export class LoginPage {
 
   loader:any;
-  user:any = {email:'', password:''};
+  user:any = {email:'angelrodriguez@ucol.mx', password:'Team.001'};
 
   constructor(
   	public navCtrl: NavController, 
@@ -55,7 +54,6 @@ export class LoginPage {
     this.apiProvider.login(this.user).then(data => {
       console.log(data)
       this.storage.set('token', data.token);
-      localStorage.setItem('token', data.token);
       this.storage.set('user_roomies', JSON.stringify(data.user));
      this.loader.dismiss();
      this.navCtrl.push(TabsPage);

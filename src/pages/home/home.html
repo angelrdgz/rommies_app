@@ -9,16 +9,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card *ngFor="let task of tasks" (click)="showTask(task.task.id)">
+  <ion-card *ngFor="let task of tasks" (click)="showTask(task.id)">
     <ion-card-header>
-      {{task.task.title}}
+      {{task.title}}
     </ion-card-header>
     <ion-card-content>
-      {{task.task.description}}
+      {{task.description}}
     </ion-card-content>
   </ion-card>
+  <img class="img_no_tasks" src="assets/imgs/no_tasks.png" *ngIf="tasks?.length == 0" alt="">
+  <h2 class="center-text" *ngIf="tasks?.length == 0">No hay tareas</h2>
   <ion-fab bottom right>
-    <button ion-fab mini>
+    <button ion-fab mini (click)="presentModal()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

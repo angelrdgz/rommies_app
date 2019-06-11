@@ -17,14 +17,17 @@ import { TaskPage } from '../pages/task/task';
 import { PurchasesPage } from '../pages/purchases/purchases';
 import { ShoppingListsPage } from '../pages/shopping-lists/shopping-lists';
 import { TasksPage } from '../pages/tasks/tasks';
+import { NewTaskPage } from '../pages/new-task/new-task';
+import { EditTaskPage } from '../pages/edit-task/edit-task';
 import { SettingsModalPage } from '../pages/settings-modal/settings-modal';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ApiProvider } from '../providers/api/api';
+import { InterceptorProvider } from '../providers/interceptor/interceptor';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { ApiProvider } from '../providers/api/api';
     ShoppingListsPage,
     TasksPage,
     TaskPage,
+    NewTaskPage,
+    EditTaskPage,
     SettingsModalPage
   ],
   imports: [
@@ -66,13 +71,16 @@ import { ApiProvider } from '../providers/api/api';
     ShoppingListsPage,
     TasksPage,
     TaskPage,
+    NewTaskPage,
+    EditTaskPage,
     SettingsModalPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorProvider, multi: true },
+    ApiProvider,
   ]
 })
 export class AppModule {}

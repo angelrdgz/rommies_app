@@ -1,7 +1,13 @@
 page-task {
-
-	.head{
-	    background-image: url("http://i66.tinypic.com/v6htsz.jpg");
-	    background-size: cover;
+	.back-button-md,
+	.back-button-ios {
+	color: #a09f9f;
+	}
+	.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default{
+        color: #fff !important;
+        font-size: 1em;
+    }
+	ion-chip{
+		margin-right: 10px !important;
 	}
 }
